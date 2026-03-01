@@ -1,0 +1,397 @@
+/* ================= ESTILOS ESPECÍFICOS PARA PÁGINAS DE PRODUCTO ================= */
+
+/* Navegación superior */
+.nav-bar {
+    background-color: #000;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 0.8rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.5rem 0;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+/* Hero section */
+.producto-hero {
+    padding: 4rem 5% 3rem;
+    text-align: center;
+    background: linear-gradient(to bottom, #000, #0a0a0a);
+}
+
+.producto-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.producto-subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================= COLLAGE MASONRY ================= */
+.collage-section {
+    padding: 2rem 5% 5rem;
+}
+
+.collage-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.collage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Diferentes tamaños para las celdas del collage */
+.collage-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    background-color: #0a0a0a;
+    aspect-ratio: 1/1;
+}
+
+.collage-item.wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+}
+
+.collage-item.tall {
+    grid-row: span 2;
+    aspect-ratio: 1/2;
+}
+
+.collage-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: 1/1;
+}
+
+.collage-item img,
+.collage-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.collage-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 255, 255, 0.15);
+    z-index: 10;
+}
+
+.collage-item:hover img,
+.collage-item:hover video {
+    transform: scale(1.08);
+}
+
+.collage-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.collage-item:hover::after {
+    opacity: 1;
+}
+
+.collage-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    color: white;
+    z-index: 2;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.collage-item:hover .collage-caption {
+    transform: translateY(0);
+}
+
+.collage-caption h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.collage-caption p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ================= MODAL MEJORADO ================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    width: 95%;
+    height: 95%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalMedia {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-image {
+    max-width: 95%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Para videos dentro del modal */
+#modalMedia video {
+    max-width: 95%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    color: #ccc;
+    transform: scale(1.1);
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.modal-prev,
+.modal-next {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    pointer-events: auto;
+    backdrop-filter: blur(5px);
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+    transform: scale(1.1);
+}
+
+.modal-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+}
+/* ================= BOTONES DE ACCIÓN ================= */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 5% 4rem;
+    border-top: 1px solid #222;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #fff;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #444;
+}
+
+.btn-secondary:hover {
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+    .collage-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+    }
+    
+    .collage-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .collage-item.wide,
+    .collage-item.large {
+        grid-column: span 2;
+    }
+    
+    .collage-item.tall {
+        grid-row: span 1;
+        aspect-ratio: 1/1;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .modal-prev,
+    .modal-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .modal-image {
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .collage-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .collage-item.wide,
+    .collage-item.large {
+        grid-column: span 1;
+    }
+    
+    .modal-image {
+        max-height: 60vh;
+    }
+}

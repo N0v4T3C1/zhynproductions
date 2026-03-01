@@ -1,0 +1,171 @@
+/* ================= REDES SOCIALES ================= */
+
+.social-section {
+    padding: 6rem 5%;
+    background-color: #000;
+    text-align: center;
+}
+
+.social-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Título principal */
+.social-section .section-title {
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+/* Subtítulo */
+.social-subtitle {
+    color: #aaa;
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+/* GRID */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+/* TARJETAS */
+.social-card {
+    background: #0b0b0b;
+    border: 1px solid #1c1c1c;
+    border-radius: 35px;
+    padding: 3rem 2rem;
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-card:hover {
+    transform: translateY(-8px);
+    border-color: #ffffff;
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.08);
+}
+
+/* ICONO CÍRCULO */
+.social-icon {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    font-size: 28px;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+/* Iconos SVG */
+.social-icon svg {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.social-card:hover .social-icon svg {
+    transform: scale(1.15);
+}
+
+/* Texto */
+.social-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.social-info span {
+    font-size: 0.95rem;
+    color: #888;
+}
+
+/* COLORES DE CADA RED */
+.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.facebook {
+    background: #1877F2;
+}
+
+.twitter {
+    background: #000;
+    border: 1px solid #333;
+}
+
+.youtube {
+    background: #FF0000;
+}
+
+.tiktok {
+    background: #000;
+    position: relative;
+}
+
+.tiktok::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #25F4EE, #FE2C55);
+    opacity: 0.6;
+    mix-blend-mode: overlay;
+}
+
+.linkedin {
+    background: #0077B5;
+}
+
+/* CTA */
+.social-cta {
+    margin-top: 4rem;
+}
+
+.social-cta p {
+    font-size: 1.3rem;
+    color: #ddd;
+}
+
+.cta-link {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.cta-link:hover {
+    color: #ccc;
+    border-color: #ccc;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-card {
+        padding: 2.5rem 1.5rem;
+    }
+}
